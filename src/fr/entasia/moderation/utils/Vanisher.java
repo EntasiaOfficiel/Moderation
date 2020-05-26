@@ -27,7 +27,7 @@ public class Vanisher {
 	}
 
 	public static boolean activate(Player p, boolean global) { // activation première du vanish
-		if(global){
+		if(global&&Main.syncMode){
 			SocketClient.sendData("broadcast vanish 1 "+p.getName());
 			if(Main.sqlConnection.fastUpdate("INSERT INTO global.vanishs VALUES(?)", p.getName())==-1){
 				p.sendMessage("§cUne erreur est survenue !");
@@ -49,7 +49,7 @@ public class Vanisher {
 	}
 
 	public static boolean desactivate(VanishedPlayer vp, boolean global){ // suppression du vanish
-		if(global){
+		if(global&&Main.syncMode){
 			SocketClient.sendData("broadcast vanish 0 "+vp.p.getName());
 			Main.sqlConnection.checkConnect();
 			if (Main.sqlConnection.fastUpdate("DELETE FROM global.vanishs where name=?", vp.p.getName()) == -1) {

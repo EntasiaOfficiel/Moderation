@@ -131,7 +131,6 @@ public class Main extends JavaPlugin{
 								vp.toUnVanish = true;
 							}
 						}
-
 					}
 				} else if (data[0].equals("1")) { // vanish un joueur
 					VanishedPlayer vp = Vanisher.vanisheds.get(data[1]);
