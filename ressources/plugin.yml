@@ -1,0 +1,12 @@
+name: Moderation
+version: 1.0
+main: fr.entasia.moderation.Main
+depend: [Libraries]
+commands:
+  moderation:
+
+  vanish:
+
+  freeze:
+
+  cps:
