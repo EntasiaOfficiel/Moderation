@@ -136,9 +136,7 @@ public class Main extends JavaPlugin{
 				} else if (data[0].equals("1")) { // vanish un joueur
 					VanishedPlayer vp = Vanisher.vanisheds.get(data[1]);
 					if (vp == null) {
-						System.out.println("getting player for name "+data[1]);
 						Player p = Bukkit.getPlayer(data[1]);
-						System.out.println(p==null);
 						if (p == null) Vanisher.vanisheds.put(data[1], new VanishedPlayer());
 						else {
 							new BukkitRunnable() {

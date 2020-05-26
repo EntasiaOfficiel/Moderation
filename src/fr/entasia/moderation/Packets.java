@@ -30,7 +30,6 @@ public class Packets {
 			public void onPacketReceiving(PacketEvent e) {
 				ModeredPlayer mp = Utils.playerCache.get(e.getPlayer().getUniqueId());
 				if (e.getPacket().getModifier().read(1).toString().charAt(0) == 'A') { // ATTACK = clic gauche
-					System.out.println("attack");
 					mp.cps++;
 				}
 			}
