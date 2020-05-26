@@ -22,8 +22,7 @@ public class Vanisher {
 
 	public static boolean isVisible(String name){
 		VanishedPlayer vp = vanisheds.get(name);
-		if(vp==null||vp.visible)return true;
-		else return false;
+		return vp == null || vp.visible;
 	}
 
 	public static boolean activate(Player p, boolean global) { // activation première du vanish
