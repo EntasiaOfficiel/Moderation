@@ -9,6 +9,8 @@ import fr.entasia.moderation.obj.VanishedPlayer;
 import fr.entasia.moderation.utils.Freezer;
 import fr.entasia.moderation.utils.Vanisher;
 import org.bukkit.Bukkit;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Projectile;
 import org.bukkit.event.EventHandler;
@@ -20,6 +22,11 @@ import org.bukkit.event.player.*;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.projectiles.ProjectileSource;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
+import org.bukkit.Bukkit;
+import org.bukkit.command.Command;
+import org.bukkit.entity.Player;
 
 public class Basics implements Listener {
 
@@ -162,7 +169,8 @@ public class Basics implements Listener {
 			if(item.hasItemMeta()&&item.getItemMeta().hasDisplayName()){
 				switch(item.getItemMeta().getDisplayName()){
 					case "§6Voir l'inventaire":
-						e.getPlayer().performCommand("invsee "+target.getName());
+										e.getPlayer().sendMessage("§aVous avez ouvert l'inventaire de §7" + target.getName() + "§a !");
+										e.getPlayer().openInventory(target.getInventory());
 						break;
 					case "§cTest de CPS":
 						if(Utils.cpsCheck(target, e.getPlayer(), 7)) {

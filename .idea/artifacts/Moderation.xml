@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="jar" name="Moderation">
-    <output-path>$USER_HOME$/Desktop</output-path>
+    <output-path>$PROJECT_DIR$/../../../../Minecraft/Servers/serveurlocal- 1.12/plugins</output-path>
     <root id="archive" name="Moderation.jar">
       <element id="module-output" name="Moderation" />
       <element id="dir-copy" path="$PROJECT_DIR$/ressources" />

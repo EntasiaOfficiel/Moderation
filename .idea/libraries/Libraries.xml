@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="Libraries">
     <CLASSES>
-      <root url="jar://D:/donnees/jars/plugins/Libraries.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../../Minecraft/Servers/serveurlocal- 1.12/plugins/Libraries.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
