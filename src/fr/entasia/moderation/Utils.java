@@ -5,7 +5,6 @@ import fr.entasia.apis.ServerUtils;
 import fr.entasia.apis.utils.ReflectionUtils;
 import fr.entasia.moderation.obj.CPSSeen;
 import fr.entasia.moderation.obj.ModeredPlayer;
-import net.minecraft.server.v1_12_R1.Block;
 import org.bukkit.entity.Player;
 
 import java.lang.reflect.Field;
