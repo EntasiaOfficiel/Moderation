@@ -58,7 +58,7 @@ public class Vanisher {
 		}
 		vanisheds.remove(vp.p.getName());
 
-		vp.p.getInventory().setContents(Serialization.DeserialiseInv(vp.inv));
+		vp.p.getInventory().setContents(Serialization.deserialiseInv(vp.inv));
 		vp.p.setMaxHealth(vp.maxhealth);
 		vp.p.setHealth(vp.health);
 		vp.p.setGameMode(vp.gamemode);

@@ -37,7 +37,7 @@ public class VanishedPlayer {
 
 	public VanishedPlayer(Player p){
 		this.p = p;
-		inv = Serialization.SerialiseInv(p.getInventory().getContents());
+		inv = Serialization.serialiseInv(p.getInventory().getContents());
 		maxhealth = p.getMaxHealth();
 		health = p.getHealth();
 		gamemode = p.getGameMode();

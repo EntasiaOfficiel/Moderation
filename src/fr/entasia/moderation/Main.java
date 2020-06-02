@@ -77,7 +77,7 @@ public class Main extends JavaPlugin{
 		Bukkit.getConsoleSender().sendMessage("Plugin désactivé !");
 		for(Entry<String, FrozenPlayer> e : Freezer.frozens.entrySet()){
 			System.out.println("Inventaire de l'utilisateur "+e.getKey()+" ( freeze ) : " +
-					Serialization.SerialiseInv(e.getValue().inv));
+					Serialization.serialiseInv(e.getValue().inv));
 			Player p = Bukkit.getPlayer(e.getKey());
 			if(p!=null){
 				p.getInventory().clear();
