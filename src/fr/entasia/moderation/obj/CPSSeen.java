@@ -8,7 +8,7 @@ public class CPSSeen {
 	public boolean go = false;
 
 	public int max;
-	public int min;
+	public int min = 5000;
 	public int moy;
 
 	public CPSSeen(ModeredPlayer by, int maxtime) {

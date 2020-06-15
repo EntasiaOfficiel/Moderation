@@ -23,7 +23,7 @@ public class CPSTask extends BukkitRunnable{
 					cs.time++;
 					cs.by.p.sendMessage("§4CPS §c" + mp.p.getName() + "§8» " + TextUtils.fill(String.valueOf(cs.time), ' ', 2) + " §4|" + " §7" + mp.cps + " §4CPS");
 					if(mp.cps>cs.max)cs.max = mp.cps;
-					if(mp.cps<cs.min)cs.min = mp.cps;
+					else if(mp.cps<cs.min)cs.min = mp.cps;
 					cs.moy += mp.cps;
 					if (cs.time >= cs.maxtime){
 						cs.by.p.sendMessage("§cTest de CPS terminé pour "+mp.p.getName());
@@ -38,10 +38,4 @@ public class CPSTask extends BukkitRunnable{
 
 		}
 	}
-
-
-	public static class CPSPlayer {
-		public Integer click = 0;
-	}
-
 }
