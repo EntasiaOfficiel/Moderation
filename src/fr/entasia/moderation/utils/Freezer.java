@@ -19,7 +19,7 @@ public class Freezer {
 
 		fp.applyFreeze();
 		fp.p.sendMessage("§cTu as été freeze ! Merci de ne pas te déconnecter , ou cela te menera à un bannissement !");
-		p.getWorld().spawnParticle(Particle.MOB_APPEARANCE, p.getLocation(),15);
+		p.spawnParticle(Particle.MOB_APPEARANCE, p.getLocation(),15);
 	}
 
 	public static void unfreeze(Player p){
@@ -33,7 +33,7 @@ public class Freezer {
 		p.setWalkSpeed(0.2f);
 
 		p.sendMessage("§aTon Freeze à été retiré !");
-		p.getWorld().spawnParticle(Particle.MOB_APPEARANCE, p.getLocation(),15);
+		p.spawnParticle(Particle.MOB_APPEARANCE, p.getLocation(),15);
 	}
 
 }
