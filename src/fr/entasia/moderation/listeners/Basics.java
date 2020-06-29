@@ -1,7 +1,7 @@
 package fr.entasia.moderation.listeners;
 
-import fr.entasia.apis.PlayerUtils;
-import fr.entasia.apis.ServerUtils;
+import fr.entasia.apis.utils.PlayerUtils;
+import fr.entasia.apis.utils.ServerUtils;
 import fr.entasia.moderation.Utils;
 import fr.entasia.moderation.obj.FrozenPlayer;
 import fr.entasia.moderation.obj.ModeredPlayer;
@@ -194,7 +194,7 @@ public class Basics implements Listener {
 
 	@EventHandler
 	public void onClick(PlayerInteractEvent e){
-		if(!ServerUtils.version.equals("v1_8_R3"))if(e.getHand()!=EquipmentSlot.HAND)return;
+		if(e.getHand()!=EquipmentSlot.HAND)return;
 
 //		if(e.getAction().toString().startsWith("LE")){
 //			for(PlayerCPSTask ct : PlayerCPSTask.list){
