@@ -1,6 +1,6 @@
 package fr.entasia.moderation.utils.tasks;
 
-import fr.entasia.apis.TextUtils;
+import fr.entasia.apis.utils.TextUtils;
 import fr.entasia.moderation.Utils;
 import fr.entasia.moderation.obj.CPSSeen;
 import fr.entasia.moderation.obj.ModeredPlayer;

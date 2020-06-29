@@ -1,6 +1,6 @@
 package fr.entasia.moderation.utils;
 
-import fr.entasia.apis.Serialization;
+import fr.entasia.apis.utils.Serialization;
 import fr.entasia.apis.socket.SocketClient;
 import fr.entasia.moderation.Main;
 import fr.entasia.moderation.obj.VanishedPlayer;

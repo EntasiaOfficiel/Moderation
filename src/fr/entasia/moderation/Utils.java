@@ -1,7 +1,7 @@
 package fr.entasia.moderation;
 
-import fr.entasia.apis.PlayerUtils;
-import fr.entasia.apis.ServerUtils;
+import fr.entasia.apis.utils.PlayerUtils;
+import fr.entasia.apis.utils.ServerUtils;
 import fr.entasia.apis.utils.ReflectionUtils;
 import fr.entasia.moderation.obj.CPSSeen;
 import fr.entasia.moderation.obj.ModeredPlayer;

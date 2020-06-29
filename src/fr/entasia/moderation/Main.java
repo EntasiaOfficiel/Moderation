@@ -1,6 +1,6 @@
 package fr.entasia.moderation;
 
-import fr.entasia.apis.Serialization;
+import fr.entasia.apis.utils.Serialization;
 import fr.entasia.apis.socket.SocketClient;
 import fr.entasia.apis.socket.SocketEvent;
 import fr.entasia.apis.sql.SQLConnection;

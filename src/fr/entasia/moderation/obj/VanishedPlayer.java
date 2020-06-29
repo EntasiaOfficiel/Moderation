@@ -1,6 +1,6 @@
 package fr.entasia.moderation.obj;
 
-import fr.entasia.apis.Serialization;
+import fr.entasia.apis.utils.Serialization;
 import fr.entasia.moderation.utils.Vanisher;
 import org.bukkit.Bukkit;
 import org.bukkit.Color;
