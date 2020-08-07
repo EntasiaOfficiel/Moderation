@@ -12,9 +12,7 @@ public class Moderation implements Listener {
 	@EventHandler()
 	public void a(PlayerInteractEvent e) throws Exception {
 		if(e.getAction()==Action.LEFT_CLICK_BLOCK){
-			Object nmsBlock = Utils.blockGetById.invoke(null, e.getClickedBlock().getType().getId());
-			float h = Utils.blockStrength.getFloat(nmsBlock);
-			if(h!=0){
+			if(Utils.getStrength(e.getClickedBlock())!=0){
 				ModeredPlayer mp = Utils.playerCache.get(e.getPlayer().getUniqueId());
 				mp.cps++;
 			}

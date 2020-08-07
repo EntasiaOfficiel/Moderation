@@ -49,8 +49,10 @@ public class Main extends JavaPlugin{
 			getServer().getPluginManager().registerEvents(new Basics(), this);
 			getServer().getPluginManager().registerEvents(new Moderation(), this);
 
-			Packets.init();
 			Utils.init();
+			if(getServer().getPluginManager().getPlugin("ProtocolLib")==null){
+				getLogger().warning("ProtocolLib n'a pas été trouvé. Certaines fonctionnalités fonctionneront mal/pas");
+			}else Packets.init();
 
 			new CPSTask().runTaskTimerAsynchronously(this, 0, 20);
 
