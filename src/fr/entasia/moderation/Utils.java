@@ -5,6 +5,7 @@ import fr.entasia.apis.utils.ServerUtils;
 import fr.entasia.apis.utils.ReflectionUtils;
 import fr.entasia.moderation.obj.CPSSeen;
 import fr.entasia.moderation.obj.ModeredPlayer;
+import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 
@@ -17,21 +18,19 @@ public class Utils {
 
 	public static HashMap<UUID, ModeredPlayer> playerCache = new HashMap<>();
 	public static Field blockStrength;
-	public static Method fromId;
-	public static Object registry;
+	public static Method getBlock;
 
 	protected static void init() throws Throwable {
 		Class<?> block = ReflectionUtils.getNMSClass("Block");
 		blockStrength = block.getDeclaredField("strength");
 		blockStrength.setAccessible(true);
 
-		registry = block.getField("REGISTRY_ID").get(null);
-		fromId = registry.getClass().getMethod("fromId", int.class);
+		getBlock = ReflectionUtils.CraftMagicNumbers.getMethod("getBlock", Material.class);
 	}
 
 	public static float getStrength(Block b){
 		try{
-			Object nmsBlock = ReflectionUtils.getNMS(b);
+			Object nmsBlock = getBlock.invoke(null, b.getType());
 			return blockStrength.getFloat(nmsBlock);
 		}catch(ReflectiveOperationException e){
 			e.printStackTrace();
