@@ -30,7 +30,7 @@ public class FrozenPlayer {
 		loc = p.getLocation();
 		loc = new Location(p.getWorld(), loc.getX(), loc.getY(), loc.getZ());
 		task = new FreezeTask(this);
-		task.runTaskTimerAsynchronously(Main.main, 0, 10);
+		task.runTaskTimer(Main.main, 0, 10);
 	}
 
 	public void applyFreeze(){
