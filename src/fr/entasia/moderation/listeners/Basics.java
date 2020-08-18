@@ -163,8 +163,8 @@ public class Basics implements Listener {
 			if(item.hasItemMeta()&&item.getItemMeta().hasDisplayName()){
 				switch(item.getItemMeta().getDisplayName()){
 					case "§6Voir l'inventaire":
-										e.getPlayer().sendMessage("§aVous avez ouvert l'inventaire de §7" + target.getName() + "§a !");
-										e.getPlayer().openInventory(target.getInventory());
+						e.getPlayer().sendMessage("§aVous avez ouvert l'inventaire de §7" + target.getName() + "§a !");
+						e.getPlayer().openInventory(target.getInventory());
 						break;
 					case "§cTest de CPS":
 						if(Utils.cpsCheck(target, e.getPlayer(), 7)) {
