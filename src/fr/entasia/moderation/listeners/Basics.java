@@ -174,7 +174,7 @@ public class Basics implements Listener {
 						}
 						break;
 					case "§aPing":
-						vp.p.sendMessage("§7Ping de §b"+target.getName()+"§7 : "+ PlayerUtils.getPing(e.getPlayer(), true));
+						vp.p.sendMessage("§7Ping de §b"+target.getName()+"§7 : "+ PlayerUtils.getPingColor((Player)e.getRightClicked()));
 						break;
 					case "§bFreeze":
 						if(Freezer.frozens.containsKey(target.getName())) {
