@@ -39,7 +39,7 @@ public class Utils {
 	}
 
 	public static void acMessage(Player by, String perm, String message){
-		ServerUtils.permMsg(perm, "§cAC-Alerte §8» §c"+by.getName()+" §8» §4"+message+" §7("+ PlayerUtils.getPing(by, true)+"§7 ms)");
+		ServerUtils.permMsg(perm, "§cAC-Alerte §8» §c"+by.getName()+" §8» §4"+message+" §7("+ PlayerUtils.getPingColor(by)+"§7 ms)");
 	}
 
 	public static boolean cpsCheck(Player on, Player by, int time){
