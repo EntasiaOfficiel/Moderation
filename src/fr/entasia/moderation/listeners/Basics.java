@@ -155,6 +155,7 @@ public class Basics implements Listener {
 
 	@EventHandler
 	public void onClick(PlayerInteractEntityEvent e){
+		if(e.getHand()!=EquipmentSlot.HAND)return;
 		if(e.getRightClicked() instanceof Player){
 			Player target = (Player) e.getRightClicked();
 			VanishedPlayer vp = Vanisher.vanisheds.get(e.getPlayer().getName());
