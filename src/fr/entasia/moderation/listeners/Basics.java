@@ -244,4 +244,11 @@ public class Basics implements Listener {
 		}else if(!vp.visible)e.setCancelled(true);
 	}
 
+	@EventHandler(priority = EventPriority.MONITOR)
+	public void a(PlayerTeleportEvent e){
+		VanishedPlayer vp = Vanisher.vanisheds.get(e.getPlayer().getName());
+		if(vp==null)return;
+		vp.applyVanish();
+	}
+
 }
