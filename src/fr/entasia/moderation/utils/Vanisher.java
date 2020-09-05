@@ -38,8 +38,8 @@ public class Vanisher {
 
 		for(Player lp : Bukkit.getOnlinePlayers()) {
 			if(vanisheds.containsKey(lp.getName())) {
-				vp.p.showPlayer(lp);
-			}else lp.hidePlayer(vp.p);
+				vp.p.showPlayer(Main.main, lp);
+			}else lp.hidePlayer(Main.main, vp.p);
 		}
 
 		vp.applyVanish();
@@ -71,8 +71,8 @@ public class Vanisher {
 		vp.p.setWalkSpeed(0.2f);
 
 		for(Player lp : Bukkit.getOnlinePlayers()){
-			lp.showPlayer(vp.p);
-			if(!isVisible(lp.getName())) vp.p.hidePlayer(lp);
+			lp.showPlayer(Main.main, vp.p);
+			if(!isVisible(lp.getName())) vp.p.hidePlayer(Main.main, lp);
 		}
 
 		Main.dataconfig.set("vanishs."+vp.p.getName(), null);

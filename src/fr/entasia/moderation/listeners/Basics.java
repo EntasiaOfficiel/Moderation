@@ -2,6 +2,7 @@ package fr.entasia.moderation.listeners;
 
 import fr.entasia.apis.utils.PlayerUtils;
 import fr.entasia.apis.utils.ServerUtils;
+import fr.entasia.moderation.Main;
 import fr.entasia.moderation.Utils;
 import fr.entasia.moderation.obj.FrozenPlayer;
 import fr.entasia.moderation.obj.ModeredPlayer;
@@ -31,7 +32,7 @@ public class Basics implements Listener {
 		VanishedPlayer vp = Vanisher.vanisheds.get(e.getPlayer().getName());
 		if(vp==null){
 			for(Player lp : Bukkit.getOnlinePlayers()){
-				if(!Vanisher.isVisible(lp.getName())) e.getPlayer().hidePlayer(lp);
+				if(!Vanisher.isVisible(lp.getName())) e.getPlayer().hidePlayer(Main.main, lp);
 			}
 			FrozenPlayer fp = Freezer.frozens.get(e.getPlayer().getName());
 			if(fp!=null){
@@ -46,7 +47,7 @@ public class Basics implements Listener {
 				e.setJoinMessage("");
 				vp.visible = false;
 				for (Player lp : Bukkit.getOnlinePlayers()) {
-					if (!Vanisher.vanisheds.containsKey(lp.getName())) lp.hidePlayer(vp.p);
+					if (!Vanisher.vanisheds.containsKey(lp.getName())) lp.hidePlayer(Main.main, vp.p);
 				}
 
 				if(vp.inv==null){
@@ -107,7 +108,7 @@ public class Basics implements Listener {
 	}
 
 	@EventHandler
-	public void onPickup(PlayerPickupItemEvent e){
+	public void onPickup(PlayerAttemptPickupItemEvent e){
 		if(Freezer.frozens.containsKey(e.getPlayer().getName())){
 			e.setCancelled(true);
 			return;

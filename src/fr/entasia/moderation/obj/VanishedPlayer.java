@@ -1,6 +1,8 @@
 package fr.entasia.moderation.obj;
 
+import fr.entasia.apis.other.ItemBuilder;
 import fr.entasia.apis.utils.Serialization;
+import fr.entasia.moderation.Main;
 import fr.entasia.moderation.utils.Vanisher;
 import org.bukkit.Bukkit;
 import org.bukkit.Color;
@@ -53,7 +55,6 @@ public class VanishedPlayer {
 
 
 	public void applyVanish(){ // actualiser le vanish
-
 		p.setFlySpeed(0.1f);
 		p.setWalkSpeed(0.2f);
 		p.getInventory().clear();
@@ -78,23 +79,14 @@ public class VanishedPlayer {
 		item.setItemMeta(meta);
 		p.getInventory().setItem(2, item);
 
-		item = new ItemStack(Material.EYE_OF_ENDER);
+		item = new ItemStack(Material.ENDER_EYE);
 		meta = item.getItemMeta();
 		meta.setDisplayName("§cTest de CPS");
 		item.setItemMeta(meta);
 		p.getInventory().setItem(3, item);
 
-		if(visible){
-			item = new ItemStack(Material.INK_SACK,1,(short)8);
-			meta = item.getItemMeta();
-			meta.setDisplayName("§3Réactiver l'invisibilité");
-		}else{
-			item = new ItemStack(Material.INK_SACK,1,(short)10);
-			meta = item.getItemMeta();
-			meta.setDisplayName("§7Désactiver l'invisibilité");
-		}
-		item.setItemMeta(meta);
-		p.getInventory().setItem(4, item);
+		if(visible) setInviOn();
+		else setInviOff();
 
 		item = new ItemStack(Material.GLOWSTONE_DUST);
 		meta = item.getItemMeta();
@@ -129,31 +121,32 @@ public class VanishedPlayer {
 		p.getInventory().setBoots(item);
 	}
 
+	private void setInviOff(){
+		ItemBuilder builder = new ItemBuilder(Material.LIME_DYE).name("§7Désactiver l'invisibilité");
+		p.getInventory().setItem(4, builder.build());
+	}
+
+	private void setInviOn(){
+		ItemBuilder builder = new ItemBuilder(Material.LIGHT_GRAY_DYE).name("§3Réactiver l'invisibilité");
+		p.getInventory().setItem(4, builder.build());
+	}
+
 	public void setVisible(boolean mode){
 		visible = mode;
 
 		if(mode){
 			for(Player lp : Bukkit.getOnlinePlayers()){
-				lp.showPlayer(p);
+				lp.showPlayer(Main.main, p);
 			}
-			ItemStack item = new ItemStack(Material.INK_SACK,1,(short)8);
-			ItemMeta meta = item.getItemMeta();
-			meta.setDisplayName("§3Réactiver l'invisibilité");
-			item.setItemMeta(meta);
-			p.getInventory().setItem(4, item);
-			p.sendMessage("§3Vanish » §cInvisibilité désactivée !");
+			setInviOn();
 
 		}else{
 			for(Player lp : Bukkit.getOnlinePlayers()) {
 				if(!Vanisher.vanisheds.containsKey(lp.getName())){
-					lp.hidePlayer(p);
+					lp.hidePlayer(Main.main, p);
 				}
 			}
-			ItemStack item = new ItemStack(Material.INK_SACK,1,(short)10);
-			ItemMeta meta = item.getItemMeta();
-			meta.setDisplayName("§7Désactiver l'invisibilité");
-			item.setItemMeta(meta);
-			p.getInventory().setItem(4, item);
+			setInviOff();
 			p.sendMessage("§3Vanish » §aInvisibilité activée !");
 		}
 	}
