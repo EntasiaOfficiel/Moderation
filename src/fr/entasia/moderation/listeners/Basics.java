@@ -136,7 +136,7 @@ public class Basics implements Listener {
 				return;
 			}
 
-			VanishedPlayer vp=null;
+			VanishedPlayer vp = null;
 			if(e.getDamager() instanceof Player){
 				Player p = (Player)e.getDamager();
 				if(p.getInventory().getItemInMainHand().hasItemMeta()&&p.getInventory().getItemInMainHand().getItemMeta().hasDisplayName()&&
@@ -246,7 +246,7 @@ public class Basics implements Listener {
 	@EventHandler(priority = EventPriority.MONITOR)
 	public void a(PlayerTeleportEvent e){
 		VanishedPlayer vp = Vanisher.vanisheds.get(e.getPlayer().getName());
-		if(vp==null)return;
+		if(vp==null||vp.p==null)return;
 		vp.applyVanish();
 	}
 
