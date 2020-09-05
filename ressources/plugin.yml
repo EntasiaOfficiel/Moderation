@@ -2,6 +2,7 @@ name: Moderation
 version: 1.0
 main: fr.entasia.moderation.Main
 depend: [Libraries]
+api-version: '1.15'
 commands:
   moderation:
 
