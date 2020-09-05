@@ -6,10 +6,6 @@ import com.comphenix.protocol.ProtocolManager;
 import com.comphenix.protocol.events.PacketAdapter;
 import com.comphenix.protocol.events.PacketEvent;
 import fr.entasia.moderation.obj.ModeredPlayer;
-import net.minecraft.server.v1_14_R1.MinecraftServer;
-import org.bukkit.Bukkit;
-import org.bukkit.craftbukkit.v1_14_R1.CraftServer;
-import org.bukkit.entity.Player;
 
 public class Packets {
 

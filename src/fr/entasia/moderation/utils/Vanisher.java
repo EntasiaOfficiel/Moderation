@@ -1,7 +1,7 @@
 package fr.entasia.moderation.utils;
 
-import fr.entasia.apis.utils.Serialization;
 import fr.entasia.apis.socket.SocketClient;
+import fr.entasia.apis.utils.Serialization;
 import fr.entasia.moderation.Main;
 import fr.entasia.moderation.obj.VanishedPlayer;
 import org.bukkit.Bukkit;
@@ -28,7 +28,7 @@ public class Vanisher {
 	public static boolean activate(Player p, boolean global) { // activation première du vanish
 		if(global&&Main.syncMode){
 			SocketClient.sendData("broadcast vanish 1 "+p.getName());
-			if(Main.sqlConnection.fastUpdate("INSERT INTO global.vanishs VALUES(?)", p.getName())==-1){
+			if(Main.sql.fastUpdate("INSERT INTO global.vanishs VALUES(?)", p.getName())==-1){
 				p.sendMessage("§cUne erreur est survenue !");
 				return false;
 			}
@@ -50,8 +50,8 @@ public class Vanisher {
 	public static boolean desactivate(VanishedPlayer vp, boolean global){ // suppression du vanish
 		if(global&&Main.syncMode){
 			SocketClient.sendData("broadcast vanish 0 "+vp.p.getName());
-			Main.sqlConnection.checkConnect();
-			if (Main.sqlConnection.fastUpdate("DELETE FROM global.vanishs where name=?", vp.p.getName()) == -1) {
+			Main.sql.checkConnect();
+			if (Main.sql.fastUpdate("DELETE FROM global.vanishs where name=?", vp.p.getName()) == -1) {
 				vp.p.sendMessage("§cdUne erreur est survenue !");
 				return false;
 			}

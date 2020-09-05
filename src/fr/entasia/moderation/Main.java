@@ -1,9 +1,9 @@
 package fr.entasia.moderation;
 
-import fr.entasia.apis.utils.Serialization;
 import fr.entasia.apis.socket.SocketClient;
 import fr.entasia.apis.socket.SocketEvent;
 import fr.entasia.apis.sql.SQLConnection;
+import fr.entasia.apis.utils.Serialization;
 import fr.entasia.moderation.commands.CPSCommand;
 import fr.entasia.moderation.commands.FreezeCommand;
 import fr.entasia.moderation.commands.VanishCommand;
@@ -28,7 +28,7 @@ import java.util.Map.Entry;
 
 public class Main extends JavaPlugin{
 
-	public static SQLConnection sqlConnection;
+	public static SQLConnection sql;
 	public static Main main;
 	public static File datafile;
 	public static FileConfiguration dataconfig;
@@ -38,7 +38,6 @@ public class Main extends JavaPlugin{
 	public void onEnable() {
 		try{
 			main = this;
-			Bukkit.getConsoleSender().sendMessage("Plugin activé !");
 
 			saveDefaultConfig();
 			loadConfig();
@@ -56,16 +55,16 @@ public class Main extends JavaPlugin{
 
 			new CPSTask().runTaskTimerAsynchronously(this, 0, 20);
 
+			sql = new SQLConnection(!syncMode).mariadb("moderation");
 			if(syncMode){
-				sqlConnection = new SQLConnection("moderation");
-				ResultSet rs = sqlConnection.connection.prepareStatement("SELECT * from global.vanishs").executeQuery();
+				ResultSet rs = sql.connection.prepareStatement("SELECT * from global.vanishs").executeQuery();
 				while(rs.next()){
 					Vanisher.vanisheds.putIfAbsent(rs.getString("name"), new VanishedPlayer());
 				}
 				initSockets();
 			}
 
-				
+			getLogger().info("Plugin activé !");
 		}catch(Throwable e){
 			e.printStackTrace();
 			getLogger().severe("Une erreur est survenue ! ARRET DU SERVEUR");

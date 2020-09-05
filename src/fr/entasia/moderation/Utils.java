@@ -1,8 +1,8 @@
 package fr.entasia.moderation;
 
 import fr.entasia.apis.utils.PlayerUtils;
-import fr.entasia.apis.utils.ServerUtils;
 import fr.entasia.apis.utils.ReflectionUtils;
+import fr.entasia.apis.utils.ServerUtils;
 import fr.entasia.moderation.obj.CPSSeen;
 import fr.entasia.moderation.obj.ModeredPlayer;
 import org.bukkit.Material;
