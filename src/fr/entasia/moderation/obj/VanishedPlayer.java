@@ -139,7 +139,7 @@ public class VanishedPlayer {
 				lp.showPlayer(Main.main, p);
 			}
 			setInviOn();
-
+			p.sendMessage("§3Vanish » §cInvisibilité désactivée !");
 		}else{
 			for(Player lp : Bukkit.getOnlinePlayers()) {
 				if(!Vanisher.vanisheds.containsKey(lp.getName())){
