@@ -121,12 +121,12 @@ public class VanishedPlayer {
 		p.getInventory().setBoots(item);
 	}
 
-	private void setInviOff(){
+	private void setInviOn(){
 		ItemBuilder builder = new ItemBuilder(Material.LIME_DYE).name("§7Désactiver l'invisibilité");
 		p.getInventory().setItem(4, builder.build());
 	}
 
-	private void setInviOn(){
+	private void setInviOff(){
 		ItemBuilder builder = new ItemBuilder(Material.LIGHT_GRAY_DYE).name("§3Réactiver l'invisibilité");
 		p.getInventory().setItem(4, builder.build());
 	}
@@ -138,7 +138,7 @@ public class VanishedPlayer {
 			for(Player lp : Bukkit.getOnlinePlayers()){
 				lp.showPlayer(Main.main, p);
 			}
-			setInviOn();
+			setInviOff();
 			p.sendMessage("§3Vanish » §cInvisibilité désactivée !");
 		}else{
 			for(Player lp : Bukkit.getOnlinePlayers()) {
@@ -146,7 +146,7 @@ public class VanishedPlayer {
 					lp.hidePlayer(Main.main, p);
 				}
 			}
-			setInviOff();
+			setInviOn();
 			p.sendMessage("§3Vanish » §aInvisibilité activée !");
 		}
 	}
